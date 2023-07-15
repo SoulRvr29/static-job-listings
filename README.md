@@ -35,7 +35,7 @@ Users should be able to:
 - Flexbox
 - CSS Grid
 - Mobile-first workflow
-- [Next.js](https://nextjs.org/) - React framework
+- [React](https://reactjs.org/) - JS library
 
 ## Author
 
