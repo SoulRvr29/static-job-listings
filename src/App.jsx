@@ -2,15 +2,10 @@ import dataJson from "./data.json";
 import Job from "./Job";
 import { useState } from "react";
 
-// role
-// level
-// languages
-// tools
-
 function App() {
   const [actualData, changeActualData] = useState(dataJson);
   const [filterItems, changeFilterItems] = useState([]);
-  // changeActualData();
+  let actualFilterItems = [];
 
   const clearFilter = () => {
     changeFilterItems((items) => (items = []));
@@ -19,42 +14,44 @@ function App() {
 
   const removeFilter = (check) => {
     changeFilterItems((arr) => arr.filter((item) => item != check));
-    // let returnData = dataJson;
-    // returnData = returnData.filter((obj) => {
-    //   return (
-    //     !obj.role == check &&
-    //     !obj.level == check &&
-    //     !obj.languages.includes(check) &&
-    //     !obj.tools.includes(check)
-    //   );
-    // });
-    // console.log(returnData);
-    // changeActualData((data) => (data = [...data, ...returnData]));
+    actualFilterItems = [...filterItems.filter((item) => item != check)];
+    console.log(actualFilterItems);
+    filterActualData();
   };
 
   const addFilter = (check) => {
     !filterItems.includes(check) &&
       changeFilterItems((arr) => (arr = [...arr, check]));
-    changeActualData((data) =>
-      data.filter((obj) => {
-        return (
-          obj.role == check ||
-          obj.level == check ||
-          obj.languages.includes(check) ||
-          obj.tools.includes(check)
-        );
-      })
-    );
+    actualFilterItems = [...filterItems, check];
+    console.log(actualFilterItems);
+    filterActualData();
   };
 
+  const filterActualData = () => {
+    changeActualData((data) => (data = dataJson));
+    for (let i = 0; i < actualFilterItems.length; i++) {
+      changeActualData((data) =>
+        data.filter((obj) => {
+          return (
+            obj.role == actualFilterItems[i] ||
+            obj.level == actualFilterItems[i] ||
+            obj.languages.includes(actualFilterItems[i]) ||
+            obj.tools.includes(actualFilterItems[i])
+          );
+        })
+      );
+    }
+  };
   return (
-    <>
+    <main>
       <div className="bkg"></div>
       <div
         className="filter"
-        // style={
-        //   filterItems.length > 0 ? { display: "flex" } : { display: "none" }
-        // }
+        style={
+          filterItems.length
+            ? { visibility: "visible" }
+            : { visibility: "hidden" }
+        }
       >
         <div className="filter-items-container">
           {filterItems.map((item) => (
@@ -74,7 +71,7 @@ function App() {
       {actualData.map((item) => (
         <Job data={item} addFilter={addFilter} key={item.id} />
       ))}
-    </>
+    </main>
   );
 }
 
