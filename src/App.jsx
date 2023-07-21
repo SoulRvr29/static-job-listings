@@ -1,5 +1,6 @@
 import dataJson from "./data.json";
 import Job from "./Job";
+import Footer from "./Footer";
 import { useState } from "react";
 
 function App() {
@@ -71,6 +72,7 @@ function App() {
       {actualData.map((item) => (
         <Job data={item} addFilter={addFilter} key={item.id} />
       ))}
+      <Footer />
     </main>
   );
 }

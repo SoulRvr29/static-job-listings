@@ -183,6 +183,22 @@ section {
   color: white;
   background-color: var(--Desaturated-Dark-Cyan);
 }
+/**************/
+/*** FOOTER ***/
+/**************/
+footer {
+  margin-bottom: 1.25rem;
+  line-height: 1.2;
+  text-align: center;
+  color: var(--Desaturated-Dark-Cyan);
+}
+footer a {
+  color: var(--Desaturated-Dark-Cyan);
+  margin: 0 4px;
+}
+footer a:hover {
+  color: rgb(255, 134, 53);
+}
 /************************/
 /***** MEDIA QUERY  *****/
 /************************/
