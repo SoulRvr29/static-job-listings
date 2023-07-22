@@ -1,6 +1,6 @@
 const Job = ({ addFilter, data }) => {
   return (
-    <section className={data.new ? "left-border" : ""}>
+    <section className={data.featured ? "left-border" : ""}>
       <div className="logo">
         <img src={data.logo} alt="logo" />
       </div>
