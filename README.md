@@ -25,7 +25,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Solution URL: [https://www.frontendmentor.io/solutions/static-job-listings-oAOnydk2zK](https://www.frontendmentor.io/solutions/static-job-listings-oAOnydk2zK
 - Live Site URL: [https://soulrvr29.github.io/static-job-listings/](https://soulrvr29.github.io/static-job-listings/)
 
 ### Built with
